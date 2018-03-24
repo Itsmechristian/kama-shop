@@ -1,0 +1,31 @@
+<nav>
+  <div class="container">
+    <div class="left-side-mobile" (click)="toggleMenu()">
+      <span></span>
+      <span></span>
+      <span></span>
+      <div class="menu" [@menuState]="menuState">
+    </div>
+    </div>
+    <div class="left-side">
+        <img src="../../assets/img/logo.png" alt="logo" height="20">
+        <li><a href="#">Home</a></li>
+        <li><a href="#">Shop</a></li>
+        <li><a href="#">Promo</a></li>
+        <li><a href="#">Blogs</a></li>
+    </div>
+      <div class="right-side">
+        <div class="wishlist">
+          <i class="fa fa-heart-o"></i>
+          <h4>0</h4>
+        </div>
+        <div class="balance">
+          <i class="fa fa-shopping-cart"></i>
+          <h4>£0.00</h4>
+        </div>
+        <div class="search">
+        <i class="fa fa-search"></i>
+        </div>
+      </div>
+  </div>
+</nav>
