@@ -6,7 +6,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { AppComponent } from './app.component';
 import { NavbarComponent } from '../components/navbar/navbar.component';
 import { HomeComponent } from '../components/home/home.component';
-
+import { FeaturedComponent } from '../components/home/featured/featured.component';
 // Services
 
 // Routing
@@ -17,7 +17,8 @@ import { routing } from './app.router';
   declarations: [
     AppComponent,
     HomeComponent,
-    NavbarComponent
+    NavbarComponent,
+    FeaturedComponent
   ],
   imports: [
     BrowserModule,
