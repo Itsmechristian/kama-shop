@@ -17,7 +17,7 @@ body{
   box-sizing: border-box;
   -moz-box-sizing: border-box;
   -webkit-box-sizing: border-box;
-  background: #f1f1f1;
+  background: #fff;
 }
 h1,
 h2,
@@ -94,10 +94,10 @@ header{
   width: 100%;
   background: url('../assets/img/imgbackground.png') no-repeat 70% 100%;
   .container{
-    height: 500px;
+    height: auto;
     padding: 50px 0px;
     h1, h3{
-      color: #fff;
+      color: $white;
       font-family: 'Times New Roman', Times, serif;
     }
     h1{
@@ -180,34 +180,87 @@ header{
       display: flex;
       flex-wrap: wrap;
       .product{
-      transition: all 0.3s ease;
-        margin: 15px;
         flex: 1;
-        height: 200px;
-        width: 200px;
-        background-size: 100% !important;
-        &:nth-child(1){
+        margin: 15px;
+        &:nth-child(1) .image{
           background: url('../assets/img/bluejacket.jpg') no-repeat;
+          &:hover{
+          background: url('../assets/img/bluejacket2.jpg') no-repeat;
+          }
         }
-        &:nth-child(2){
+        &:nth-child(2) .image{
           background: url('../assets/img/blackblouse.jpg') no-repeat;
         }
-        &:nth-child(3){
+        &:nth-child(3) .image{
           background: url('../assets/img/brownpurse.jpg') no-repeat;
         }
-        &:nth-child(4){
+        &:nth-child(4) .image{
           background: url('../assets/img/blackpolo.jpg') no-repeat;
-          
         }
-        &:hover{
-          transform: scale(1.2)
+        .image{
+          transition: all 0.5s ease-in-out;
+          height: 180px;
+          width: auto;
+          background-size: 100% !important;
+          &:hover{
+            opacity: 0.8;
+          }
+        }
+        h4{
+          &:nth-child(2){
+            font-weight: 400;
+          }
+        }
+      }
+    }
+  }
+}
+.categories{
+  .container{
+    display: flex;
+    flex-wrap: wrap;
+    .sales, .best-sellers, .kids-product{
+      flex: 1;
+      hr{
+        display: inline-block;
+        background: $black;
+      }
+      > hr{
+        height: 2px;
+        max-width: 40px;
+        width: 40px;
+    
+      }
+      .product{
+        margin: 15px 0px;
+        display: block;
+        img{
+          display: inline-block;
+          width: 30%;
+        }
+        .details{
+          vertical-align: top;
+          display: inline-block;
+          width: 65%;
+          h4{
+            &:nth-child(1){
+              font-weight: 300;
+            }
+            span{
+              text-decoration: line-through;
+            }
+          }
+          hr{
+            max-width: 80px;
+            width: 80px;
+          }
         }
       }
     }
   }
 }
 
-@media screen and (min-width: 1900px) {
+@media screen and (min-width: 2000px) {
   header{
     background-size: 100%;
   }
@@ -219,9 +272,33 @@ header{
   .featured{
     .container{
       h2{
-      &:after, &:before{
-        width: 120px;
+        &:after, &:before{
+          width: 120px;
+        }
       }
+    }
+  }
+  .weekly-products{
+    display: block !important;
+    .product{
+      height: 260px;
+      vertical-align: top;
+      display: inline-block;
+      width: 43%;
+      .image{
+        height: 200px;
+      }
+    }
+  }
+  .sales, .best-sellers, .kids-product{
+    .product{
+      img{
+        display: block !important;
+        width: 50% !important;
+      }
+      .details{
+        display: block !important;
+        width: 100% !important;
       }
     }
   }
@@ -261,6 +338,7 @@ header{
     }
   }
   .info{
+    margin: 60px 0px;
     .container{
       display: block;
       .sales, .weekly-discount, .about-us {
@@ -271,6 +349,62 @@ header{
     }
     .weekly-discount{
       background: url('../assets/img/navyblueshoes.png') 100% 70% no-repeat !important;
+    }
+  }
+  .featured{
+    .container{
+      h2{
+        font-size: 1.2rem;
+        &:after, &::before{
+          width: 70px;
+        }
+      }
+    }
+  }
+  .weekly-products{
+    .product{
+      width: 90% !important;
+      height: 340px !important;
+      .image{
+        height: 300px !important;
+      }
+    }
+  }
+  .categories{
+    .container{
+      display: block;
+    }
+    .sales, .best-sellers, .kids-product{
+      display: block;
+      .product{
+        margin: 20px 0px !important;
+        img{
+          width: 250px !important;
+          height: 200px;
+        }
+      }
+    }
+  }
+
+}
+@media screen and(max-width: 468px) {
+  .featured{
+    .container{
+      h2{
+        font-size: 0.9rem;
+        &:after, &::before{
+          width: 40px;
+        }
+      }
+    }
+  }
+  .weekly-products{
+    .product{
+      width: 90% !important;
+      height: 240px !important;
+      .image{
+        height: 70% !important;
+      }
     }
   }
 }

@@ -7,7 +7,10 @@ import { AppComponent } from './app.component';
 import { NavbarComponent } from '../components/navbar/navbar.component';
 import { HomeComponent } from '../components/home/home.component';
 import { FeaturedComponent } from '../components/home/featured/featured.component';
+import { CategoriesComponent } from '../components/home/categories/categories.component';
+
 // Services
+import { ProductService } from '../services/product.service';
 
 // Routing
 import { routing } from './app.router';
@@ -18,7 +21,8 @@ import { routing } from './app.router';
     AppComponent,
     HomeComponent,
     NavbarComponent,
-    FeaturedComponent
+    FeaturedComponent,
+    CategoriesComponent
   ],
   imports: [
     BrowserModule,
@@ -26,7 +30,7 @@ import { routing } from './app.router';
     routing,
     BrowserAnimationsModule
   ],
-  providers: [],
+  providers: [ ProductService ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
