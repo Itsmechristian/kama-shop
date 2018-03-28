@@ -182,34 +182,18 @@ header{
       .product{
         flex: 1;
         margin: 15px;
-        &:nth-child(1) .image{
-          background: url('../assets/img/bluejacket.jpg') no-repeat;
-          &:hover{
-          background: url('../assets/img/bluejacket2.jpg') no-repeat;
-          }
-        }
-        &:nth-child(2) .image{
-          background: url('../assets/img/blackblouse.jpg') no-repeat;
-        }
-        &:nth-child(3) .image{
-          background: url('../assets/img/brownpurse.jpg') no-repeat;
-        }
-        &:nth-child(4) .image{
-          background: url('../assets/img/blackpolo.jpg') no-repeat;
-        }
         .image{
-          transition: all 0.5s ease-in-out;
-          height: 180px;
+          transition: opacity 0.2s ease-in-out;
+          height: 170px;
           width: auto;
+          background-repeat: no-repeat;
           background-size: 100% !important;
           &:hover{
             opacity: 0.8;
           }
         }
         h4{
-          &:nth-child(2){
             font-weight: 400;
-          }
         }
       }
     }
@@ -243,9 +227,7 @@ header{
           display: inline-block;
           width: 65%;
           h4{
-            &:nth-child(1){
               font-weight: 300;
-            }
             span{
               text-decoration: line-through;
             }
@@ -254,6 +236,45 @@ header{
             max-width: 80px;
             width: 80px;
           }
+        }
+      }
+    }
+  }
+}
+.info{
+  .container{
+    display: flex;
+    flex-wrap: wrap;
+    .info-wrapper{
+      margin: 60px 15px;
+      flex: 1;
+      .circle{
+        margin: 0 auto;
+        position: relative;
+        height: 200px;
+        width: 200px;
+        background: $darkgreen;
+        border-radius: 50%;
+        i{
+          display: block;
+          width: 100%;
+          text-align: center;
+          color: $white;
+          position: absolute;
+          font-size: 4.3rem;
+          top: 0;
+          bottom: 0;
+          transform: translateY(30%);
+        }
+      }
+      .text{
+        margin: 15px 0px;
+        h3{
+          text-align: center;
+        }
+        p{
+          text-align: center;
+          padding: 0px 10px;
         }
       }
     }
@@ -362,8 +383,10 @@ header{
     }
   }
   .weekly-products{
+    margin: 60px 0px 10px 0px !important;
     .product{
-      width: 90% !important;
+      margin: 15px 0px !important;
+      width: 100% !important;
       height: 340px !important;
       .image{
         height: 300px !important;
@@ -376,11 +399,23 @@ header{
     }
     .sales, .best-sellers, .kids-product{
       display: block;
+      h3 {
+        text-align: center;
+      }
+      hr{
+        display: block !important;
+        margin: 10px auto;
+      }
       .product{
-        margin: 20px 0px !important;
+        margin: 50px 0px !important;
         img{
-          width: 250px !important;
-          height: 200px;
+          width: 100% !important;
+          height: 350px;
+        }
+      }
+      .details{
+        h4{
+          text-align: center;
         }
       }
     }
@@ -400,10 +435,25 @@ header{
   }
   .weekly-products{
     .product{
-      width: 90% !important;
       height: 240px !important;
       .image{
         height: 70% !important;
+      }
+    }
+  }
+  .categories{
+    .sales, .best-sellers, .kids-product{
+      .product{
+        margin: 50px 0px !important;
+        img{
+          width: 100% !important;
+          height: 240px !important;
+        }
+      }
+      .details{
+        h4{
+          text-align: center;
+        }
       }
     }
   }

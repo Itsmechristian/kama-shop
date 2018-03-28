@@ -1,4 +1,5 @@
-import { Component, ViewEncapsulation, OnInit, ElementRef } from '@angular/core';
+import { Component, ViewEncapsulation, OnInit, AfterViewInit, ElementRef} from '@angular/core';
+
 
 @Component({
   selector: 'app-root',
@@ -6,12 +7,12 @@ import { Component, ViewEncapsulation, OnInit, ElementRef } from '@angular/core'
   styleUrls: ['./app.component.scss'],
   encapsulation: ViewEncapsulation.None,
 })
-export class AppComponent implements OnInit {
+export class AppComponent implements OnInit, AfterViewInit {
 
-  constructor(private element: ElementRef) {
-
+  constructor(private el: ElementRef) {
   }
   ngOnInit() {
-
+  }
+  ngAfterViewInit() {
   }
 }
