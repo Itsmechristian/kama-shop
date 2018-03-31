@@ -90,6 +90,8 @@ nav{
   }  
 }
 header{
+  opacity: 0;
+  animation-fill-mode: forwards;
   height: 500px;
   width: 100%;
   background: url('../assets/img/imgbackground.png') no-repeat 70% 100%;
@@ -119,6 +121,7 @@ header{
     display: flex;
     flex-wrap: wrap;
     .sales, .weekly-discount, .about-us{
+      opacity: 0;
       margin: 80px 15px;
       flex: 1;
       display: inline-block;
@@ -204,16 +207,14 @@ header{
     display: flex;
     flex-wrap: wrap;
     .sales, .best-sellers, .kids-product{
+      margin: 0 15px;
       flex: 1;
       hr{
         display: inline-block;
         background: $black;
-      }
-      > hr{
         height: 2px;
         max-width: 40px;
         width: 40px;
-    
       }
       .product{
         margin: 15px 0px;
@@ -232,10 +233,6 @@ header{
               text-decoration: line-through;
             }
           }
-          hr{
-            max-width: 80px;
-            width: 80px;
-          }
         }
       }
     }
@@ -251,8 +248,8 @@ header{
       .circle{
         margin: 0 auto;
         position: relative;
-        height: 200px;
-        width: 200px;
+        height: 180px;
+        width: 180px;
         background: $darkgreen;
         border-radius: 50%;
         i{
@@ -261,10 +258,10 @@ header{
           text-align: center;
           color: $white;
           position: absolute;
-          font-size: 4.3rem;
+          font-size: 80px;
           top: 0;
           bottom: 0;
-          transform: translateY(30%);
+          padding: 50px 0px;
         }
       }
       .text{
@@ -276,6 +273,55 @@ header{
           text-align: center;
           padding: 0px 10px;
         }
+      }
+    }
+  }
+}
+footer{
+  background: #2D2D2A;
+  height: auto;
+  width: 100%;
+  .container{
+    display: flex;
+    flex-wrap: wrap;
+    padding: 20px 0px;
+    .logos{
+      flex: 2;
+      img{
+        margin: -5px 0px;
+        display: inline-block;
+      }
+      .logo{
+        margin: 5px;
+        vertical-align: top;
+        display: inline-block;
+      }
+    }
+    .info{
+      flex: 1;
+      .info-wrapper{
+        margin: 15px 0px;
+        img{
+          display: inline-block;
+        }
+        .text-wrapper{
+          padding: 0px 5px;
+          vertical-align: top;
+          display: inline-block;
+          h5{
+            color: $white;
+            font-weight: 300;
+          }
+        }
+      }
+    }
+    .copyright{
+      text-align: center;
+      padding: 50px 0px;
+      display: block;
+      width: 100%;
+      h3{
+        color: $white;
       }
     }
   }
@@ -398,6 +444,7 @@ header{
       display: block;
     }
     .sales, .best-sellers, .kids-product{
+      margin: 0 !important;
       display: block;
       h3 {
         text-align: center;
@@ -420,7 +467,17 @@ header{
       }
     }
   }
-
+  footer{
+    .container{
+      display: block !important;
+      .logos, .info{
+        display: block;
+      }
+      .copyright{
+        padding: 10px 0px;
+      }
+    }
+  }
 }
 @media screen and(max-width: 468px) {
   .featured{
@@ -456,5 +513,9 @@ header{
         }
       }
     }
+  }
+  footer .container .logos img{
+    display: block;
+    margin: 2px 0px;
   }
 }

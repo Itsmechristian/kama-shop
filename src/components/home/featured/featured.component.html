@@ -3,7 +3,9 @@
     <h2>WEEKLY FEATURED PRODUCTS</h2>
     <div class="weekly-products">
       <div class="product" *ngFor="let weeklyproduct of weeklyProducts">
-      <div class="image" [ngStyle]="{'background-image': 'url('+ weeklyproduct.images +')'}"></div>
+      <div class="image" [ngStyle]="{
+        'background-image': 'url('+ weeklyproduct.image +')'
+      }"></div>
         <h4>{{weeklyproduct.name}}</h4>
         <h4>{{weeklyproduct.price}}</h4>
       </div>

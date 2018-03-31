@@ -1,19 +1,19 @@
-<header>
+<header [@fadeIn]="headerBackgroundState">
   <div class="container">
-      <h1>New Arrivals</h1>
+      <h1 [@slideUp]="headingTextState">New Arrivals</h1>
       <h3>Sales 20% OFF</h3>
       <a href="#">Shop now</a>
   </div>
 </header>
 <div class="info">
   <div class="container">
-      <div class="sales">
+      <div class="sales" [@test]="headerBackgroundState">
           <h4>Sales</h4>
         </div>
-        <div class="weekly-discount">
+        <div class="weekly-discount" [@test2]="headerBackgroundState">
           <h4>Weekly discount</h4>
         </div>
-        <div class="about-us">
+        <div class="about-us" [@test3]="headerBackgroundState">
           <h4>About Us</h4>
         </div>
   </div>
@@ -28,7 +28,7 @@
         </div>
         <div class="text">
           <h3>Fast Delivery</h3>
-          <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Sapiente recusandae minus optio quas, explicabo, maiores quo, vel fugiat totam aspernatur odio laborum voluptatum quam porro quaerat voluptas laboriosam dolor perspiciatis.</p>
+          <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Sapiente recusandae minus optio rum voluptatum quam porro quaerat voluptas laboriosam dolor perspiciatis.</p>
         </div>
     </div>
     <div class="info-wrapper">
@@ -36,8 +36,8 @@
           <i class="fa fa-lock"></i>
         </div>
         <div class="text">
-          <h3>Fast Delivery</h3>
-          <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Sapiente recusandae minus optio quas, explicabo, maiores quo, vel fugiat totam aspernatur odio laborum voluptatum quam porro quaerat voluptas laboriosam dolor perspiciatis.</p>
+          <h3>Secure</h3>
+          <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Sapiente recusandae minus optio quas, explicabo, maiores quo, vel fugiat totam aspernatur o.</p>
         </div>
     </div>
     <div class="info-wrapper">
@@ -45,14 +45,53 @@
           <i class="fa fa-shopping-bag"></i>
         </div>
         <div class="text">
-          <h3>Fast Delivery</h3>
-          <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Sapiente recusandae minus optio quas, explicabo, maiores quo, vel fugiat totam aspernatur odio laborum voluptatum quam porro quaerat voluptas laboriosam dolor perspiciatis.</p>
+          <h3>Easy To Shop</h3>
+          <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Sapiente recusandae minus optio quas, explicabo, maiores quo, vel fugiat totam aspernatur odio.</p>
         </div>
     </div>
   </div>
 </div>
 <footer>
   <div class="container">
-    
+    <div class="logos">
+      <img src="../../assets/img/logo.png" alt="logo" height="40">
+      <div class="logo" id="fb-logo">
+      <img src="../../assets/img/facebooklogo.svg" alt="logo" height="30">
+      </div>
+      <div class="logo" id="insta-logo">
+      <img src="../../assets/img/instagramlogo.svg" alt="logo" height="30">
+      </div>
+      <div class="logo" id="twitter-logo">
+      <img src="../../assets/img/twitterlogo.svg" alt="logo" height="30">
+      </div>
+    </div>
+    <div class="info">
+        <div class="info-wrapper">
+            <img src="../../assets/img/marker.svg" alt="logo" height="50">
+            <div class="text-wrapper">
+              <h5>44 Broomfield Place
+                </h5>
+                <h5>STONE CROSS</h5>
+                <h5>BN24 98D</h5>
+            </div>
+        </div>
+        <div class="info-wrapper">
+            <img src="../../assets/img/phonelogo.svg" alt="logo" height="50">
+            <div class="text-wrapper">
+              <h5>+44 3069 990298
+                </h5>
+            </div>
+        </div>
+        <div class="info-wrapper">
+            <img src="../../assets/img/mailboxlogo.svg" alt="logo" height="50">
+            <div class="text-wrapper">
+              <h5>contact@kamashop.com
+                </h5>
+            </div>
+        </div>
+    </div>
+    <div class="copyright">
+      <h3>Kamashop Copyright &copy; 2018 All Rights Reserved</h3>
+    </div>
   </div>
 </footer>

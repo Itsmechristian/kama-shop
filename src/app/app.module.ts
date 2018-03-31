@@ -8,6 +8,8 @@ import { NavbarComponent } from '../components/navbar/navbar.component';
 import { HomeComponent } from '../components/home/home.component';
 import { FeaturedComponent } from '../components/home/featured/featured.component';
 import { CategoriesComponent } from '../components/home/categories/categories.component';
+import { NotFoundComponent } from '../components/notfound/notfound.component';
+
 
 // Services
 import { ProductService } from '../services/product.service';
@@ -22,7 +24,8 @@ import { routing } from './app.router';
     HomeComponent,
     NavbarComponent,
     FeaturedComponent,
-    CategoriesComponent
+    CategoriesComponent,
+    NotFoundComponent
   ],
   imports: [
     BrowserModule,
