@@ -90,8 +90,6 @@ nav{
   }  
 }
 header{
-  opacity: 0;
-  animation-fill-mode: forwards;
   height: 500px;
   width: 100%;
   background: url('../assets/img/imgbackground.png') no-repeat 70% 100%;
@@ -121,7 +119,6 @@ header{
     display: flex;
     flex-wrap: wrap;
     .sales, .weekly-discount, .about-us{
-      opacity: 0;
       margin: 80px 15px;
       flex: 1;
       display: inline-block;
