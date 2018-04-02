@@ -1,30 +1,22 @@
-import { Component, OnInit, ViewChild, Renderer2, ElementRef, HostListener } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { ProductService } from '../../../services/product.service';
-
+import { fadeIn } from '../../../animations/animate';
 
 @Component({
   selector: 'featured-root',
   templateUrl: './featured.component.html',
+  animations: [
+    fadeIn('fadeInFeatured', 200),
+  ]
 })
 export class FeaturedComponent implements OnInit{
-  @ViewChild('featured') featured: ElementRef;
-
+  featuredState:String = '';
   weeklyProducts:Array<any>;
 
   constructor(private productService: ProductService){
     this.getWeeklyProducts()
   }
   ngOnInit() {
-  }
-  @HostListener('window:scroll', [])
-  onWindowScroll() {
-    const featuredElement = this.featured.nativeElement.getBoundingClientRect();
-    const featuredTop = featuredElement.top + window.pageYOffset - document.documentElement.clientTop
-
-   if(this.featured.nativeElement.offsetTop
-    < window.pageYOffset) {
-      console.log('1')
-    }
   }
 
   getWeeklyProducts():void {
@@ -38,5 +30,8 @@ export class FeaturedComponent implements OnInit{
           }
       })
     })
+  }
+  onAppear() {
+    this.featuredState = 'up'
   }
 }

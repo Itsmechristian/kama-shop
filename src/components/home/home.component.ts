@@ -7,7 +7,7 @@ import { fadeIn, slideUp } from '../../animations/animate';
   animations: [
     fadeIn('fadeInHeader', 200),
     fadeIn('fadeInInfo', 200),
-    slideUp('slideUp1', '50px', '.5s'),
+    slideUp('slideUp1', '40px', '.5s'),
     slideUp('slideUp2', '20px', '1s'),
 ]
 })

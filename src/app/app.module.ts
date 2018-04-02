@@ -8,6 +8,9 @@ import { NavbarComponent } from '../components/navbar/navbar.component';
 import { HomeComponent } from '../components/home/home.component';
 import { FeaturedComponent } from '../components/home/featured/featured.component';
 import { CategoriesComponent } from '../components/home/categories/categories.component';
+import { ShopComponent } from '../components/shop/shop.component';
+import { ProductsComponent } from '../components/shop/products/products.component';
+import { ShopCategoriesComponent } from '../components/shop/shopcategories/shopcategories.component'
 import { NotFoundComponent } from '../components/notfound/notfound.component';
 
 
@@ -17,6 +20,9 @@ import { ProductService } from '../services/product.service';
 // Routing
 import { routing } from './app.router';
 
+// Directive
+import { AppearDirective } from './appear.directive';
+
 
 @NgModule({
   declarations: [
@@ -25,7 +31,11 @@ import { routing } from './app.router';
     NavbarComponent,
     FeaturedComponent,
     CategoriesComponent,
-    NotFoundComponent
+    ShopComponent,
+    ProductsComponent,
+    ShopCategoriesComponent,
+    NotFoundComponent,
+    AppearDirective
   ],
   imports: [
     BrowserModule,

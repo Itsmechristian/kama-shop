@@ -1,5 +1,5 @@
 // Importing the reqyured animation functions
-import { trigger, state, transition, style, animate } from '@angular/animations';
+import { trigger, state, transition, style, animate, stagger, query } from '@angular/animations';
 import { AnimationEntryMetadata } from '@angular/core';
 
 export const fadeIn = function(name:string,duration: (string | number)) {
@@ -15,7 +15,6 @@ export const fadeIn = function(name:string,duration: (string | number)) {
     }))
   ])
 }
-
 
 export const slideUp  = (name:string, from: string, duration: (string | number)) => {
   return trigger(name, [
