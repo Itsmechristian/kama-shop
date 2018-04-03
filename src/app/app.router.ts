@@ -2,6 +2,7 @@ import { Routes, RouterModule } from '@angular/router';
 import { HomeComponent } from '../components/home/home.component';
 import { ShopComponent } from '../components/shop/shop.component';
 import { NotFoundComponent } from '../components/notfound/notfound.component';
+import { ModuleWithProviders } from '@angular/core';
 
 
 const APP_ROUTES = [
@@ -11,6 +12,10 @@ const APP_ROUTES = [
   },
   {
     path: 'shop',
+    component: ShopComponent
+  },
+  {
+    path: 'shop/:category',
     component: ShopComponent
   },
   {

@@ -1,33 +1,11 @@
 <div class="products">
   <div class="container-fluid">
-    <div class="product">
-      <img src="https://www.itsmechristian.co.uk/images/jacket/blue-jacket/3d4044d65abdda407a92991f1300ec97.jpg" alt="">
+    <div class="product" *ngFor="let product of products">
+      <img [src]=sanitizeSrc(product.image) alt="">
       <div class="info">
-          <h4>Lorem ipsum dolor sit amet.</h4>
-          <h5>£20.00</h5>
+          <h4>{{product.name}}</h4>
+          <h5>£{{product.price}}</h5>
         </div>
     </div>
-    <div class="product">
-        <img src="https://www.itsmechristian.co.uk/images/jacket/blue-jacket/3d4044d65abdda407a92991f1300ec97.jpg" alt="">
-        <div class="info">
-            <h4>Lorem ipsum dolor sit amet.</h4>
-          <h5>£20.00</h5>
-          </div>
-      </div>
-      <div class="product">
-          <img src="https://www.itsmechristian.co.uk/images/jacket/blue-jacket/3d4044d65abdda407a92991f1300ec97.jpg" alt="">
-          <div class="info">
-            <h4>Lorem ipsum dolor sit amet.</h4>
-          <h5>£20.00</h5>
-          </div>
-      </div>
-      <div class="product">
-          <img src="https://www.itsmechristian.co.uk/images/jacket/blue-jacket/3d4044d65abdda407a92991f1300ec97.jpg" alt="">
-          <div class="info">
-              <h4>Lorem ipsum dolor sit amet.</h4>
-          <h5>£20.00</h5>
-              
-            </div>
-      </div>
   </div>
 </div>
