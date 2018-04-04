@@ -10,7 +10,9 @@ import { FeaturedComponent } from '../components/home/featured/featured.componen
 import { CategoriesComponent } from '../components/home/categories/categories.component';
 import { ShopComponent } from '../components/shop/shop.component';
 import { ProductsComponent } from '../components/shop/products/products.component';
-import { ShopCategoriesComponent } from '../components/shop/shopcategories/shopcategories.component'
+import { ProductComponent } from '../components/shop/product/product.component';
+import { ShopCategoriesComponent } from '../components/shop/shopcategories/shopcategories.component';
+import { CheckOutComponent } from '../components/checkout/checkout.component';
 import { NotFoundComponent } from '../components/notfound/notfound.component';
 
 
@@ -33,7 +35,9 @@ import { AppearDirective } from './appear.directive';
     CategoriesComponent,
     ShopComponent,
     ProductsComponent,
+    ProductComponent,
     ShopCategoriesComponent,
+    CheckOutComponent,
     NotFoundComponent,
     AppearDirective
   ],

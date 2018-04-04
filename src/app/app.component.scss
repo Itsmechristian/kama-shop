@@ -1,5 +1,6 @@
 $black: #333;
 $green: #03FCBA;
+$semigreen: rgb(62, 155, 147);
 $darkgreen: #8AB0AB;
 $white: #fff; 
 
@@ -331,6 +332,30 @@ footer{
         vertical-align: top;
         display: inline-block;
         width: 70%;
+        .products{
+          .container-fluid{
+            .product{
+              .info{
+                h4,h5{
+                  cursor: pointer;
+                }
+                h4{
+                  text-overflow: ellipsis;
+                  white-space: nowrap;
+                  overflow: hidden;
+                  max-height: 25px;
+                }
+                a{
+                  padding: 3px 15px;
+                  background: $semigreen;
+                  color: $white;
+                  display: inline-block;
+                  margin: 5px 0px 0px 0px;
+                }
+              }
+            }
+          }
+        }
       }
       shopcategories{
         display: inline-block;
@@ -359,6 +384,7 @@ footer{
             padding: 5px 0px;
             .categories-body{
               h5{
+                cursor: pointer;
                 padding: 5px 15px;
               }
             }
@@ -417,7 +443,7 @@ footer{
   .container-fluid{
     .product{
       margin: 5px;
-      border: #b4b4b4 solid .1px;
+      border: 1px solid #ebebeb;
       vertical-align: top;
       display: inline-block;
       padding: 5px;

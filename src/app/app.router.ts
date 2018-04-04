@@ -3,6 +3,7 @@ import { HomeComponent } from '../components/home/home.component';
 import { ShopComponent } from '../components/shop/shop.component';
 import { NotFoundComponent } from '../components/notfound/notfound.component';
 import { ModuleWithProviders } from '@angular/core';
+import { ProductComponent } from '../components/shop/product/product.component';
 
 
 const APP_ROUTES = [
@@ -17,6 +18,10 @@ const APP_ROUTES = [
   {
     path: 'shop/:category',
     component: ShopComponent
+  },
+  {
+    path: 'product/:id',
+    component: ProductComponent
   },
   {
     path: '404',

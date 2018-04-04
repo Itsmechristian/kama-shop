@@ -5,7 +5,7 @@ import { HttpClient } from '@angular/common/http';
 export class ProductService {
   // Api Url's
   // Production Url
-  productsUrl = 'http://localhost:5000/api/products'
+  productsUrl = 'https://www.itsmechristian.co.uk/api/products'
   weeklyProductsUrl = 'https://www.itsmechristian.co.uk/api/weeklyproducts'
   salesProductsUrl = 'https://www.itsmechristian.co.uk/api/saleproducts'
   bestSellersUrl = 'https://www.itsmechristian.co.uk/api/bestsellers'
