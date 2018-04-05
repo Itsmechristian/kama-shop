@@ -1,8 +1,8 @@
 import {
   ElementRef, Output, Directive, AfterViewInit, OnDestroy, EventEmitter
 } from '@angular/core';
-import {Observable} from 'rxjs/Observable';
-import {Subscription} from 'rxjs/Subscription';
+import { Observable } from 'rxjs/Observable';
+import { Subscription } from 'rxjs/Subscription';
 import 'rxjs/add/observable/fromEvent';
 import 'rxjs/add/operator/startWith';
 

@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { ProductService } from '../../../services/product.service';
+import { CheckOutService } from '../../../services/checkout.service';
 import { DomSanitizer } from '@angular/platform-browser';
 import { fadeIn } from '../../../animations/animate';
 
@@ -15,12 +16,16 @@ import { fadeIn } from '../../../animations/animate';
 export class ProductsComponent implements OnInit {
   params:string;
   products: Array<any>;
-
+  what:object = {
+    title: 'test',
+    length: 0
+  };  
   constructor(
     private productsService: ProductService,
     private activatedRoute: ActivatedRoute,
     private sanitize: DomSanitizer,
-    private router: Router
+    private router: Router,
+    private checkoutService: CheckOutService
   ) {
   }
   ngOnInit() {
@@ -58,5 +63,9 @@ export class ProductsComponent implements OnInit {
   }
   onSelect(id) {
    this.router.navigate(['/product/', id]) 
+  }
+  onCheckout(id){
+    this.router.navigate(['/checkout'])
+    this.checkoutService.addCheckout({id: id, test: 1})
   }
 }

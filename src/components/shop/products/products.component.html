@@ -1,11 +1,11 @@
 <div class="products">
   <div class="container-fluid">
-    <div class="product" *ngFor="let product of products" [@fadeInProduct]="'show'" (click)=onSelect(product.id)>
-      <img [src]=sanitizeSrc(product.image) alt="">
+    <div class="product" *ngFor="let product of products" [@fadeInProduct]="'show'">
+      <img [src]=sanitizeSrc(product.image) alt="" (click)=onSelect(product.id)>
       <div class="info">
-          <h4>{{product.name}}</h4>
-          <h5>£{{product.price}}</h5>
-        <a href="#">Add to Cart</a>
+          <h4 (click)=onSelect(product.id)>{{product.name}}</h4>
+          <h5 (click)=onSelect(product.id)>£{{product.price}}</h5>
+        <a (click)=onCheckout(product.id)>Add to Cart</a>
         </div>
     </div>
   </div>

@@ -18,6 +18,7 @@ import { NotFoundComponent } from '../components/notfound/notfound.component';
 
 // Services
 import { ProductService } from '../services/product.service';
+import { CheckOutService } from '../services/checkout.service';
 
 // Routing
 import { routing } from './app.router';
@@ -47,7 +48,7 @@ import { AppearDirective } from './appear.directive';
     routing,
     BrowserAnimationsModule
   ],
-  providers: [ ProductService ],
+  providers: [ ProductService, CheckOutService ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
