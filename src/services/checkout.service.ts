@@ -1,44 +1,78 @@
 import { Injectable } from '@angular/core';
+import { ProductService } from './product.service';
+import { ProductModel } from '../models/product.model';
 
 @Injectable()
 export class CheckOutService {
-  checkouts: Array<any> = [];
-  items: Array<any>;  
-  public addCheckout(products) {
-    this.checkouts.push(products)
-    this.items = this.removeDuplicate(this.checkouts, 'id')
-    const count = this.countCheckout()
-    const test = this.items.map(e => {
+  private products: ProductModel[] = []
+  private idsCheckout: Array<string> = [];
+  private test = [];
+
+  constructor(private productservice: ProductService) { }
+
+  public addCheckout(id: any) {
+  this.idsCheckout.push(id)
+  }
+  public async getCheckout() {
+    let filtered;
+
+    await this.productservice.getProducts().subscribe(res => {
+      res.forEach(x => {
+        this.products.push(x)
+      })
+    })
+    await this.idsCheckout.forEach(x => {
+      let found = this.products.find(e => e.id === x)
+      filtered = found
+    })
+
+    if(filtered === undefined) {
+      return
+    }
+    else{
+      this.test.push(filtered)
+    }
+    let arr = this.removeDuplicate(this.test, 'id')
+    return await arr.map(x => {
       return {
-        id: e.id,
+        id: x.id,
+        categories: x.categories,
+        details: x.details,
+        images: x.images,
+        name: x.name,
+        originalprice: x.price * this.getLength(this.test, x.id),
+        totalprice: x.price,
+        quantity: this.getLength(this.test, x.id)
       }
     })
+
+  }
+  private getLength(filtered, id) {
+     let items = this.countCheckout(filtered)
+     let count = items.find(x => x.id === id)
+     return count.quantity || 1
   }
 
-  public getCheckout() {
-    return this.checkouts
-  }
-  private countCheckout() {
-    let test = []
+
+  private countCheckout(items) {
+    let arr = []
     let counter = {}
-
-   this.checkouts.forEach(e => {
-     let key = JSON.stringify(e.id)
+   items.forEach(e => {
+     let key = e.id
      counter[key] = (counter[key] || 0) + 1
    })
 
     for(var key in counter) {
-      test.push({
+      arr.push({
         id: key,
-        length: counter[key]
+        quantity: counter[key]
       })
     }
-   return test
+   return arr
   }
 
-
   private removeDuplicate(arr, prop) {
-    let newArray = [];
+    let newArr = []
     let object = {};
 
     arr.forEach((item, index) => {
@@ -46,10 +80,8 @@ export class CheckOutService {
     })
 
     Object.keys(object).forEach(e => {
-      newArray.push(object[e])
+      newArr.push(object[e])
     })
-    return newArray
+    return newArr
   }
-
- 
 }

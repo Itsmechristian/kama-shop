@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import { CheckOutService } from '../../services/checkout.service';
 
 
@@ -6,12 +6,14 @@ import { CheckOutService } from '../../services/checkout.service';
   templateUrl: './checkout.component.html'
 })
 export class CheckOutComponent implements OnInit {
-  items: Array<any> = [];
+  items: Array<any>;
   constructor(
     private checkoutService: CheckOutService
    ) { }
 
-   ngOnInit() {
-     this.items = this.checkoutService.getCheckout()
-    }
+ ngOnInit() {
+   this.checkoutService.getCheckout().then(res => {
+     console.log(res)
+   })
+ }
 }

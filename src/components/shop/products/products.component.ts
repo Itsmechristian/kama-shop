@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit} from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { ProductService } from '../../../services/product.service';
 import { CheckOutService } from '../../../services/checkout.service';
@@ -16,10 +16,8 @@ import { fadeIn } from '../../../animations/animate';
 export class ProductsComponent implements OnInit {
   params:string;
   products: Array<any>;
-  what:object = {
-    title: 'test',
-    length: 0
-  };  
+  filtered: Array<any> = [];
+
   constructor(
     private productsService: ProductService,
     private activatedRoute: ActivatedRoute,
@@ -62,10 +60,10 @@ export class ProductsComponent implements OnInit {
     return this.sanitize.bypassSecurityTrustUrl(imgUrl)
   }
   onSelect(id) {
-   this.router.navigate(['/product/', id]) 
+   this.router.navigate(['/product/', id])
   }
   onCheckout(id){
     this.router.navigate(['/checkout'])
-    this.checkoutService.addCheckout({id: id, test: 1})
+    this.checkoutService.addCheckout(id)
   }
 }
