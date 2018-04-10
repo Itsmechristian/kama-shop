@@ -1,5 +1,5 @@
 import { Component, OnInit, AfterViewInit } from '@angular/core';
-import { fadeIn, slideUp } from '../../animations/animate';
+import { fadeIn } from '../../animations/animate';
 
 @Component({
   selector: 'home-root',
@@ -7,8 +7,6 @@ import { fadeIn, slideUp } from '../../animations/animate';
   animations: [
     fadeIn('fadeInHeader', 200),
     fadeIn('fadeInInfo', 200),
-    slideUp('slideUp1', '40px', '.5s'),
-    slideUp('slideUp2', '20px', '1s'),
 ]
 })
 export class HomeComponent implements OnInit, AfterViewInit {

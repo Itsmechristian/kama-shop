@@ -2,7 +2,7 @@ import { Routes, RouterModule } from '@angular/router';
 import { HomeComponent } from '../components/home/home.component';
 import { ShopComponent } from '../components/shop/shop.component';
 import { ProductComponent } from '../components/shop/product/product.component';
-import { CheckOutComponent } from '../components/checkout/checkout.component';
+import { CheckoutComponent } from '../components/checkout/checkout.component';
 import { NotFoundComponent } from '../components/notfound/notfound.component';
 
 
@@ -25,7 +25,7 @@ const APP_ROUTES = [
   },
   {
     path: 'checkout',
-    component: CheckOutComponent
+    component: CheckoutComponent
   },
   {
     path: '404',

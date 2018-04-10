@@ -1,7 +1,7 @@
 import { Component, OnInit} from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { ProductService } from '../../../services/product.service';
-import { CheckOutService } from '../../../services/checkout.service';
+import { CheckoutService } from '../../../services/checkout.service';
 import { DomSanitizer } from '@angular/platform-browser';
 import { fadeIn } from '../../../animations/animate';
 
@@ -10,7 +10,7 @@ import { fadeIn } from '../../../animations/animate';
   selector: 'products-root',
   templateUrl: './products.component.html',
   animations: [
-    fadeIn('fadeInProduct', '.5s')
+    fadeIn('fadeInProduct', 500)
   ]
 })
 export class ProductsComponent implements OnInit {
@@ -23,7 +23,7 @@ export class ProductsComponent implements OnInit {
     private activatedRoute: ActivatedRoute,
     private sanitize: DomSanitizer,
     private router: Router,
-    private checkoutService: CheckOutService
+    private checkoutService: CheckoutService
   ) {
   }
   ngOnInit() {
@@ -62,8 +62,8 @@ export class ProductsComponent implements OnInit {
   onSelect(id) {
    this.router.navigate(['/product/', id])
   }
-  onCheckout(id){
-    this.router.navigate(['/checkout'])
-    this.checkoutService.addCheckout(id)
+   onCheckout(id){
+     this.checkoutService.addCheckout(id)
+     this.router.navigate(['/checkout'])
   }
 }

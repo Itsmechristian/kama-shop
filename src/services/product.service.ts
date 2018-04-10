@@ -12,8 +12,7 @@ export class ProductService {
   kidsProductUrl = 'https://www.itsmechristian.co.uk/api/kidsproducts'
 
 
-  constructor(private http: HttpClient) {
-  }
+  constructor(private http: HttpClient) {}
   getProducts() {
     return this.http.get<any>(this.productsUrl)
   }

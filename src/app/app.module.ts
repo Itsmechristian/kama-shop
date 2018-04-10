@@ -12,13 +12,13 @@ import { ShopComponent } from '../components/shop/shop.component';
 import { ProductsComponent } from '../components/shop/products/products.component';
 import { ProductComponent } from '../components/shop/product/product.component';
 import { ShopCategoriesComponent } from '../components/shop/shopcategories/shopcategories.component';
-import { CheckOutComponent } from '../components/checkout/checkout.component';
+import { CheckoutComponent } from '../components/checkout/checkout.component';
 import { NotFoundComponent } from '../components/notfound/notfound.component';
 
 
 // Services
 import { ProductService } from '../services/product.service';
-import { CheckOutService } from '../services/checkout.service';
+import { CheckoutService } from '../services/checkout.service';
 
 // Routing
 import { routing } from './app.router';
@@ -38,17 +38,17 @@ import { AppearDirective } from './appear.directive';
     ProductsComponent,
     ProductComponent,
     ShopCategoriesComponent,
-    CheckOutComponent,
+    CheckoutComponent,
     NotFoundComponent,
     AppearDirective
   ],
   imports: [
-    BrowserModule,
+    BrowserModule.withServerTransition({ appId: 'appServer ' }),
     HttpClientModule,
     routing,
     BrowserAnimationsModule
   ],
-  providers: [ ProductService, CheckOutService ],
+  providers: [ ProductService, CheckoutService ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

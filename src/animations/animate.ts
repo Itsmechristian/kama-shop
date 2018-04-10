@@ -2,7 +2,7 @@
 import { trigger, state, transition, style, animate, stagger, query } from '@angular/animations';
 import { AnimationEntryMetadata } from '@angular/core';
 
-export const fadeIn = function(name:string,duration: (string | number)) {
+export function fadeIn(name:string, duration: number) {
   return trigger(name, [
     state('*', style({
       opacity: 0
@@ -14,20 +14,4 @@ export const fadeIn = function(name:string,duration: (string | number)) {
       opacity: 1
     }))
   ])
-}
-
-export const slideUp  = (name:string, from: string, duration: (string | number)) => {
-  return trigger(name, [
-    state('*', style({
-      opacity: 0,
-      transform: `translateY(${from})`
-    })),
-    transition('* => up', animate(duration, style({
-      opacity: 1,
-      transform: 'translateY(0px)'
-    }))),
-    state('up', style({
-      transform: 'translateY(0px)'
-    }))
-])
 }

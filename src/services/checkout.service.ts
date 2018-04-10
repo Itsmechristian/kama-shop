@@ -3,61 +3,46 @@ import { ProductService } from './product.service';
 import { ProductModel } from '../models/product.model';
 
 @Injectable()
-export class CheckOutService {
-  private products: ProductModel[] = []
-  private idsCheckout: Array<string> = [];
-  private test = [];
+export class CheckoutService {
+  private idsCheckout: Array<any> = [];
 
   constructor(private productservice: ProductService) { }
 
-  public addCheckout(id: any) {
-  this.idsCheckout.push(id)
+  public async addCheckout(id: any) {
+    this.idsCheckout.push(id)
   }
-  public async getCheckout() {
-    let filtered;
 
-    await this.productservice.getProducts().subscribe(res => {
-      res.forEach(x => {
-        this.products.push(x)
-      })
-    })
-    await this.idsCheckout.forEach(x => {
-      let found = this.products.find(e => e.id === x)
-      filtered = found
-    })
+  public getCheckout() {
+    return this.idsCheckout
+  }
 
-    if(filtered === undefined) {
-      return
-    }
-    else{
-      this.test.push(filtered)
-    }
-    let arr = this.removeDuplicate(this.test, 'id')
-    return await arr.map(x => {
+  public mappedCheckout(product) {
+    let removed = this.removeDuplicate(product, 'id')
+    return removed.map(x => {
       return {
-        id: x.id,
         categories: x.categories,
         details: x.details,
+        id: x.id,
         images: x.images,
         name: x.name,
-        originalprice: x.price * this.getLength(this.test, x.id),
-        totalprice: x.price,
-        quantity: this.getLength(this.test, x.id)
+        originalprice: x.price,
+        totalprice: x.price * this.getLength(product, x.id),
+        quantity: this.getLength(product, x.id)
       }
     })
-
   }
+
   private getLength(filtered, id) {
      let items = this.countCheckout(filtered)
      let count = items.find(x => x.id === id)
-     return count.quantity || 1
+     return count.quantity
   }
 
 
-  private countCheckout(items) {
+  private countCheckout(product) {
     let arr = []
     let counter = {}
-   items.forEach(e => {
+   product.forEach(e => {
      let key = e.id
      counter[key] = (counter[key] || 0) + 1
    })
