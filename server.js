@@ -9,14 +9,13 @@ const express = require('express')
 
 app.use(express.static(path.join(__dirname, 'dist')))
 
+app.get('/', (req, res) => {
+  res.sendFile(path.join(__dirname + '/dist/index.html'))
+});
 
-function angularRoute(req , res) {
-  res.render('index', { req, res } );
-}
-
-app.get('/', angularRoute);
-app.get('*', angularRoute);
-
+app.get('*', (req, res) => {
+  res.sendFile(path.join(__dirname + '/dist/index.html'))
+})
 
 const port = 4000;
 
