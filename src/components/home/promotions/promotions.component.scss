@@ -1,0 +1,40 @@
+.container{
+    display: flex;
+    flex-wrap: wrap;
+
+    .sales,
+    .weekly-discount,
+    .about-us{
+    margin: 80px 15px;
+    flex: 1;
+    display: inline-block;
+    vertical-align: top;
+    height: 185px;
+    width: 150px;
+    position: relative;
+    background-size: 100%! important;
+
+    h4{
+        position: relative;
+        top: 40%;
+        color: #fff;
+        text-align: center;
+        font-size: 1.4rem;
+        font-family: Arial;
+        font-weight: 300;
+        text-transform: uppercase;
+    }
+    }
+
+    .sales{
+    background: url('../../../assets/img/bluetshirt.png') 100% no-repeat;
+    }
+
+    .weekly-discount{
+    background: url('../../../assets/img/navyblueshoes.png') 100% no-repeat;
+    }
+
+    .about-us{
+    background: url('../../../assets/img/blackbag.png') 100% no-repeat;
+    }
+}

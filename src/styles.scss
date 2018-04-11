@@ -1,1 +1,44 @@
-@import url('../node_modules/font-awesome/css/font-awesome.min.css')
+@import url('../node_modules/font-awesome/css/font-awesome.min.css');
+@import url('./variables.scss');
+
+body{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    background: #fff;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6{
+  font-family: Segoe UI;
+  color: #333;
+  margin: 0;
+  padding: 0;
+}
+
+a{
+  font-family: Segoe UI;
+  text-decoration: none;
+  color: #333;
+}
+
+p{
+  font-family: Segoe UI;
+  color: #333;
+}
+
+li{
+  font-family: Segoe UI;
+  list-style-type: none;
+}
+
+.container{
+  max-width: 1140px;
+  margin: 0 auto;
+}

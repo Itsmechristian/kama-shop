@@ -4,6 +4,7 @@ import { trigger, style, transition, animate, keyframes, query, stagger , state}
 @Component({
   selector: 'navbar-root',
   templateUrl: './navbar.component.html',
+  styleUrls: ['./navbar.component.scss'],
   animations: [
     trigger('menuState', [
       transition('none => block', animate('0.1s', keyframes([

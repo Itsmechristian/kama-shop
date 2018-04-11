@@ -1,0 +1,58 @@
+footer{
+    background: #2D2D2A;
+    height: auto;
+    width: 100%;
+
+    .container{
+      display: flex;
+      flex-wrap: wrap;
+      padding: 20px 0px;
+
+      .logos{
+        flex: 2;
+
+        img{
+          margin: -5px 0px;
+          display: inline-block;
+        }
+
+        .logo{
+          margin: 5px;
+          vertical-align: top;
+          display: inline-block;
+        }
+      }
+
+      .info{
+        flex: 1;
+
+        .info-wrapper{
+          margin: 15px 0px;
+
+          img{
+            display: inline-block;
+          }
+
+          .text-wrapper{
+            padding: 0px 5px;
+            vertical-align: top;
+            display: inline-block;
+            h5{
+              color: #fff;
+              font-weight: 300;
+            }
+          }
+        }
+      }
+      .copyright{
+        text-align: center;
+        padding: 50px 0px;
+        display: block;
+        width: 100%;
+        
+        h3{
+          color: #fff;
+        }
+      }
+    }
+  }

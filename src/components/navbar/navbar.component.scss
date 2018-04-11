@@ -1,0 +1,57 @@
+@import '../../../src/variables.scss';
+
+nav{
+    width: 100%;
+    background: #fff;
+    border-bottom: 8px solid $darkgreen;
+
+    .container{
+      padding: 15px 0px;
+      display: flex;
+      justify-content: space-between;
+
+      img,
+      li,
+      h4,
+      .wishlist,
+      .balance,
+       .search{
+        vertical-align: top;
+        display: inline-block;
+      }
+
+      .left-side-mobile{
+        display: none;
+      }
+
+      .left-side{
+        img{
+
+          padding: 5px 0px;
+        }
+
+        li{
+          margin: 4px 10px;
+
+          a{
+            font-family: Segoe SB;
+          }
+        }
+      }
+      .right-side{
+        .wishlist,
+        .balance{
+          padding: 4px 5px;
+          border-right: 1px solid #333;
+        }
+        
+        .search{
+          padding: 4px 5px;
+        }
+
+        i{
+          padding: 3px 0px;
+        }
+      }
+    }
+  }
