@@ -1,0 +1,93 @@
+.container{
+  display: flex;
+  flex-wrap: wrap;
+  .sales, .best-sellers, .kids-product{
+    margin: 0 15px;
+    flex: 1;
+    hr{
+      display: inline-block;
+      background: #333;
+      height: 2px;
+      max-width: 40px;
+      width: 40px;
+    }
+    .product{
+      margin: 15px 0px;
+      display: block;
+      img{
+        display: inline-block;
+        width: 30%;
+      }
+      .details{
+        vertical-align: top;
+        display: inline-block;
+        width: 65%;
+        h4{
+            font-weight: 300;
+          span{
+            text-decoration: line-through;
+          }
+        }
+      }
+    }
+  }
+}
+@media screen and (max-width: 1200px) {
+  .sales, .best-sellers, .kids-product{
+    .product{
+      img{
+        display: block !important;
+        width: 50% !important;
+      }
+      .details{
+        display: block !important;
+        width: 100% !important;
+      }
+    }
+  }
+}
+@media screen and (max-width: 768px) {
+    .container{
+      display: block;
+    }
+  .sales, .best-sellers, .kids-product{
+    margin: 0 !important;
+    display: block;
+    h3 {
+      text-align: center;
+    }
+    hr{
+      display: block !important;
+      margin: 10px auto;
+    }
+    .product{
+      margin: 50px 0px !important;
+      img{
+        width: 100% !important;
+        height: 350px;
+      }
+    }
+    .details{
+      h4{
+        text-align: center;
+      }
+    }
+  }
+}
+@media screen and(max-width: 468px) {
+  .sales, .best-sellers, .kids-product{
+    .product{
+      margin: 50px 0px !important;
+      img{
+        width: 100% !important;
+        height: 240px !important;
+      }
+    }
+    .details{
+      h4{
+        text-align: center;
+      }
+    }
+  }
+}
+  

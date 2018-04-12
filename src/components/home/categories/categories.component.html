@@ -1,37 +1,35 @@
-<div class="categories">
-    <div class="container">
-       <div class="sales">
-          <h3>Sale Products</h3>
-          <hr />
-          <div class="product" *ngFor="let saleproduct of saleProducts">
-             <img [src]=sanitizeSrc(saleproduct.image) alt="" height="80">
-             <div class="details">
-                <h4>{{saleproduct.productName}}</h4>
-                <h4><span>{{saleproduct.originalPrice}}</span> {{saleproduct.percentOf}} OFF {{saleproduct.discountedTo}}</h4>
-             </div>
-          </div>
-       </div>
-       <div class="best-sellers">
-          <h3>Best Sellers</h3>
-          <hr />
-          <div class="product" *ngFor="let bestseller of bestSellers">
-             <img [src]=sanitizeSrc(bestseller.image) alt="" height="80">
-             <div class="details">
-                <h4>{{bestseller.name}}</h4>
-                <h4>{{bestseller.price}}</h4>
-             </div>
-          </div>
-       </div>
-       <div class="kids-product">
-          <h3>Kids Products</h3>
-          <hr />
-          <div class="product" *ngFor="let kidsproduct of kidsProducts">
-             <img [src]=sanitizeSrc(kidsproduct.image) alt="" height="80">
-             <div class="details">
-                <h4>{{kidsproduct.name}}</h4>
-                <h4>{{kidsproduct.price}}</h4>
-             </div>
-          </div>
-       </div>
+<div class="container" (appear)="onAppear()" [@fadeIn]="featuredState">
+<div class="sales">
+    <h3>Sale Products</h3>
+    <hr />
+    <div class="product" *ngFor="let saleproduct of saleProducts">
+        <img [src]=sanitizeSrc(saleproduct.image) alt="" height="80">
+        <div class="details">
+            <h4>{{saleproduct.productName}}</h4>
+            <h4><span>{{saleproduct.originalPrice}}</span> {{saleproduct.percentOf}} OFF {{saleproduct.discountedTo}}</h4>
+        </div>
     </div>
- </div>
+</div>
+<div class="best-sellers">
+    <h3>Best Sellers</h3>
+    <hr />
+    <div class="product" *ngFor="let bestseller of bestSellers">
+        <img [src]=sanitizeSrc(bestseller.image) alt="" height="80">
+        <div class="details">
+            <h4>{{bestseller.name}}</h4>
+            <h4>{{bestseller.price}}</h4>
+        </div>
+    </div>
+</div>
+<div class="kids-product">
+    <h3>Kids Products</h3>
+    <hr />
+    <div class="product" *ngFor="let kidsproduct of kidsProducts">
+        <img [src]=sanitizeSrc(kidsproduct.image) alt="" height="80">
+        <div class="details">
+            <h4>{{kidsproduct.name}}</h4>
+            <h4>{{kidsproduct.price}}</h4>
+        </div>
+    </div>
+</div>
+</div>

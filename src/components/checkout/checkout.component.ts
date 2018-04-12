@@ -4,7 +4,8 @@ import { CheckoutService } from '../../services/checkout.service';
 import { ProductModel } from '../../models/product.model';
 
 @Component({
-  templateUrl: './checkout.component.html'
+  templateUrl: './checkout.component.html',
+  styleUrls: ['./checkout.component.scss']
 })
 export class CheckoutComponent implements OnInit {
   idsCheckout: Array<any>;
@@ -28,6 +29,5 @@ export class CheckoutComponent implements OnInit {
   }
   mappedCheckout(product) {
     this.checkouts = this.checkoutservice.mappedCheckout(product)
-    console.log(this.checkouts)
   }
 }

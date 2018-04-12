@@ -1,0 +1,93 @@
+.container{
+  text-align: center;
+  display: block;
+    h2{
+    font-weight: 300;
+    display: inline-block;
+    position: relative;
+    &:after, &:before{
+      position: absolute;
+      content: '';
+      height: 5px;
+      width: 200px;
+      border-top: 1px solid #333;
+      border-bottom: 1px solid #333;
+      top: 10px;
+    }
+    &:after{
+      left: 100%;
+      margin-left: 10px;
+    }
+    &:before{
+      right: 100%;
+      margin-right: 10px;
+    }
+  }
+  .weekly-products{
+    margin: 60px 0px;
+    display: flex;
+    flex-wrap: wrap;
+    .product{
+      flex: 1;
+      margin: 15px;
+      .image{
+        transition: opacity 0.2s ease-in-out;
+        height: 170px;
+        width: auto;
+        background-repeat: no-repeat;
+        background-size: 100% !important;
+        &:hover{
+          opacity: 0.8;
+        }
+      }
+      h4{
+          font-weight: 400;
+      }
+    }
+  }
+}
+@media screen and (max-width: 1200px) {
+  .container{
+    h2{
+      &:after, &:before{
+        width: 120px;
+      }
+    }
+    .weekly-products{
+      display: block !important;
+      .product{
+        height: 260px;
+        vertical-align: top;
+        display: inline-block;
+        width: 43%;
+        .image{
+          height: 200px;
+        }
+      }
+    }
+  }
+}
+@media screen and (max-width: 768px) {
+  .weekly-products{
+    margin: 60px 0px 10px 0px !important;
+    .product{
+      margin: 15px 0px !important;
+      width: 100% !important;
+      height: 340px !important;
+      .image{
+        height: 300px !important;
+      }
+    }
+  }
+}
+  
+@media screen and(max-width: 468px) {
+  .weekly-products{
+    .product{
+      height: 240px !important;
+      .image{
+        height: 85% !important;
+      }
+    }
+  }
+}

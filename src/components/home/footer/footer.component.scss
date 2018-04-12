@@ -56,3 +56,25 @@ footer{
       }
     }
   }
+
+@media screen and (max-width: 768px) {
+  footer{
+    .container{
+      display: block !important;
+      .logos, .info{
+        display: block;
+      }
+      .copyright{
+        padding: 10px 0px;
+      }
+    }
+  }
+}
+
+@media screen and(max-width: 468px) {
+  footer .container .logos img{
+    display: block;
+    margin: 2px 0px;
+  }
+}
+  

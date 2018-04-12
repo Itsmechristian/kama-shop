@@ -3,7 +3,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { ProductService } from '../../../services/product.service';
 import { CheckoutService } from '../../../services/checkout.service';
 import { DomSanitizer } from '@angular/platform-browser';
-import { fadeIn } from '../../../animations/animate';
+import { fadeIn } from '../../../animations/fadein.animate';
 
 
 @Component({

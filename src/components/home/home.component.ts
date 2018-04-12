@@ -1,5 +1,5 @@
-import { Component, OnInit, AfterViewInit } from '@angular/core';
-import { fadeIn } from '../../animations/animate';
+import { Component } from '@angular/core';
+import { fadeIn } from '../../animations/fadein.animate';
 
 @Component({
   selector: 'home-root',
@@ -9,41 +9,7 @@ import { fadeIn } from '../../animations/animate';
     fadeIn('fadeInInfo', 200),
 ]
 })
-export class HomeComponent implements OnInit, AfterViewInit {
-  headOneState:String = '';
-  headThreeState:String = '';
-  anchorState:String = '';
-  salesState:String = '';
-  discountState:String = '';
-  aboutState:String = '';
+export class HomeComponent {
 
-  constructor() {
-
-  }
-  ngOnInit() {
- 
-  }
-  ngAfterViewInit() {
-    // Header Animations
-    setTimeout(() => {
-      this.headOneState = 'up'
-    }, 1000)
-    setTimeout(() => {
-      this.headThreeState = 'up'
-    })
-    setTimeout(() => {
-      this.anchorState = 'up'
-    }, 1500)
-    
-    //Info Animations
-    setTimeout(() => {
-      this.salesState = 'show'
-    }, 300)
-    setTimeout(() => {
-      this.discountState = 'show'
-    }, 600)
-    setTimeout(() => {
-      this.aboutState = 'show'
-    }, 900)
-  }
+  constructor() {}
 }

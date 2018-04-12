@@ -1,0 +1,19 @@
+.products{
+  .container-fluid{
+    .product{
+      margin: 5px;
+      border: 1px solid #ebebeb;
+      vertical-align: top;
+      display: inline-block;
+      padding: 5px;
+      width: 28%;
+      img{
+        width: 100%;
+        height: auto;
+      }
+      .info{
+        padding: 10px 0px;
+      }
+    }
+  }
+}

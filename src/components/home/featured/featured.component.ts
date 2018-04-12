@@ -1,12 +1,13 @@
 import { Component, OnInit } from '@angular/core';
 import { ProductService } from '../../../services/product.service';
-import { fadeIn } from '../../../animations/animate';
+import { fadeIn } from '../../../animations/fadein.animate';
 
 @Component({
   selector: 'featured-root',
   templateUrl: './featured.component.html',
+  styleUrls: ['./featured.component.scss'],
   animations: [
-    fadeIn('fadeInFeatured', 200),
+    fadeIn('fadeIn', 500),
   ]
 })
 export class FeaturedComponent implements OnInit{
@@ -32,6 +33,6 @@ export class FeaturedComponent implements OnInit{
     })
   }
   onAppear() {
-    this.featuredState = 'up'
+    this.featuredState = 'show'
   }
 }

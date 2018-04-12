@@ -38,3 +38,20 @@
     background: url('../../../assets/img/blackbag.png') 100% no-repeat;
     }
 }
+@media screen and (max-width: 768px) {
+    .container{
+    display: block;
+    .sales, .weekly-discount, .about-us {
+        margin: 15px 0px;
+        display: block;
+        width: 100%;
+    }
+    }
+    .weekly-discount{
+    background: url('../../../assets/img/navyblueshoes.png') 100% 70% no-repeat !important;
+    }
+}
+@media screen and(max-width: 468px) {
+    
+}
+    
