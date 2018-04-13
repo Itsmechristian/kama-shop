@@ -1,5 +1,9 @@
-<div *ngIf="product">
-  <div class="container">
-      {{product.name}}
+<div class="container">
+  <div class="product">
+    <div class="product-image" *ngIf=product >
+        <img [src]=sanitizeSrc(product.images[0]) alt="product" #image>
+        <div class="lens" #lens></div>
+    </div>
+    <div class="result" #result></div>
   </div>
 </div>

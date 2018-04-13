@@ -9,6 +9,7 @@ import { fadeIn } from '../../../animations/fadein.animate';
 @Component({
   selector: 'products-root',
   templateUrl: './products.component.html',
+  styleUrls: ['./products.component.scss'],
   animations: [
     fadeIn('fadeInProduct', 500)
   ]
