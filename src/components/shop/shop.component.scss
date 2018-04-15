@@ -6,64 +6,11 @@
         vertical-align: top;
         display: inline-block;
         width: 70%;
-        .products{
-          .container-fluid{
-            .product{
-              .info{
-                h4,h5{
-                  cursor: pointer;
-                }
-                h4{
-                  text-overflow: ellipsis;
-                  white-space: nowrap;
-                  overflow: hidden;
-                  max-height: 25px;
-                }
-                a{
-                  padding: 3px 15px;
-                  background: #3e9b93;
-                  color: #fff;
-                  display: inline-block;
-                  margin: 5px 0px 0px 0px;
-                }
-              }
-            }
-          }
-        }
+
       }
-      shopcategories{
+      shopcategories-root{
         display: inline-block;
         width: 20%;
-        .shopcategories{
-          @keyframes spin {
-            from{
-              transform: rotate(0deg);
-            }
-            to{
-              transform: rotate(360deg);
-            }
-          }
-          .title-ctn{
-            display: flex;
-            justify-content: space-between;
-            padding: 15px 0px;
-            border-bottom: #333 .5px solid;
-            i{
-              padding: 5px;
-              height: 100%;
-              animation: spin 1s infinite;
-            }
-          }
-          .categories-ctn{
-            padding: 5px 0px;
-            .categories-body{
-              h5{
-                cursor: pointer;
-                padding: 5px 15px;
-              }
-            }
-          }
-        }
       }
     }
   }

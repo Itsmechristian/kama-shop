@@ -1,9 +1,53 @@
 <div class="container">
-  <div class="product">
-    <div class="product-image" *ngIf=product >
-        <img [src]=sanitizeSrc(product.images[0]) alt="product" #image>
-        <div class="lens" #lens></div>
+    <div class="product" *ngIf=product>
+       <div class="image-wrapper">
+          <div class="product-image">
+             <img [src]=sanitizeSrc(product.images[0]) alt="product">
+             <div class="lens">
+                <i class="fa fa-search-plus"></i>
+             </div>
+          </div>
+          <div class="sub-images">
+        
+            <div class="images-scroll">
+              <img *ngFor="let image of product.images" src="{{image}}" alt="sub-images">
+            </div>
+            <div class="to-left">
+                <i class="fa fa-angle-left" #left></i>
+              </div>
+            <div class="to-right">
+              <i class="fa fa-angle-right" #right></i>
+            </div>
+          </div>
+       </div>
+       <div class="product-details">
+          <h1>{{product.name}}</h1>
+          <h2>£{{product.price}}</h2>
+          <h2>{{product.details}}</h2>
+          <div class="quantity-wrapper">
+             <h1>Quantity</h1>
+             <input type="text" name="Quantity" onkeydown="return false;" value="{{value}}" #quantity>
+             <div class="calculate">
+                <span><i class="fa fa-angle-up" (click)="quantityHandler($event)" id="plus"></i></span>
+                <span><i class="fa fa-angle-down" (click)="quantityHandler($event)" id="minus"></i></span>
+             </div>
+          </div>
+          <a href="#"><i class="fa fa-shopping-cart"></i> Checkout</a>
+          <div class="share-links">
+             <p>Share</p>
+             <div class="facebook">
+                <i class="fa fa-facebook"></i>
+             </div>
+             <div class="twitter">
+                <i class="fa fa-twitter"></i>
+             </div>
+             <div class="google">
+                <i class="fa fa-google"></i>
+             </div>
+             <div class="pinterest">
+                <i class="fa fa-pinterest-p"></i>
+             </div>
+          </div>
+       </div>
     </div>
-    <div class="result" #result></div>
-  </div>
-</div>
+ </div>

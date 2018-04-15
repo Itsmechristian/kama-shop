@@ -1,7 +1,8 @@
 <div class="products">
   <div class="container-fluid">
     <div class="product" *ngFor="let product of products" [@fadeInProduct]="'show'">
-      <img [src]=sanitizeSrc(product.image) alt="" (click)=onSelect(product.id)>
+        <img  alt="product" (click)=onSelect(product.id) [src]=sanitizeSrc(product.image) #images>
+      <hr>
       <div class="info">
           <h4 (click)=onSelect(product.id)>{{product.name}}</h4>
           <h5 (click)=onSelect(product.id)>£{{product.price}}</h5>

@@ -2,8 +2,10 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 
 @Component({
-  selector: 'shopcategories',
-  templateUrl: './shopcategories.component.html'
+  selector: 'shopcategories-root',
+  templateUrl: './shopcategories.component.html',
+  styleUrls: ['./shopcategories.component.scss'],
+ 
 })
 export class ShopCategoriesComponent implements OnInit {
   constructor(

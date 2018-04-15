@@ -1,29 +1,207 @@
 .product{
   display: block;
   position: relative;
-  .product-image{
-    position: relative;
+  margin: 5% 0;
+  .image-wrapper{
     height: 300px;
     width: 400px;
-    img{
-      height: 100%;
-      width: 100%;
+    display: inline-block;
+    .product-image{
+      position: relative;
+  
+      img{
+        width: 100%;
+        height: 100%;
+      }
+  
+      .lens{
+        background: transparent;
+        opacity: 0;
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        z-index: 700;
+        top: 0;
+  
+        &:hover{
+          opacity: 0.5;
+          background: #fff;
+        }
+  
+        i{
+          font-size: 1.8rem;
+          text-align: center;
+          display: block;
+          position: absolute;
+          top: 50%;
+          left: 50%;
+          transform: translate(-50%, -50%);
+          opacity: 1;
+          z-index: 999;
+          color: #000;
+        }
+      }
     }
-    .lens{
-      background: transparent;
-      position: absolute;
-      border: 1px solid red;
-      width: 40px;
-      height: 40px;
-      z-index: 700;
-      top: 0;
+    .sub-images{
+
+      .to-left, .to-right {
+        height: 100%;
+        width: 30px;
+        display: inline-block;
+        position: relative;
+
+        i{
+          transform: translate(-50%, -50%);
+          position: absolute;
+          left: 50%;
+          top: 50%;
+          padding: 5px;
+          border: 1px solid #eeeeee;
+        }
+      }
+      .to-left{
+        float: left;
+      }
+      .to-right{
+        float: right;
+      }
+      .images-scroll{
+        display:  block;
+        width: 80%;
+        margin: 0 auto;
+        height: 100%;
+        white-space: nowrap;
+        overflow: hidden;
+        clear: both;
+
+        img{
+          height: 100px;
+          width: 130px;
+          margin: 10px;
+        }
+      }
     }
   }
-  .result{
-    position: absolute;
-    height: 400px;
-    width: 400px;
-    z-index: 999;
-    left: 0;
+
+    
+  .product-details{
+    display: inline-block;
+    width: 50%;
+    vertical-align: top;
+    margin: 0px 15px;
+
+    h1{
+      color: #373737;
+      font-size: 1.1rem;
+      margin: 10px;
+      text-transform: uppercase;
+    }
+
+    h2{
+      margin: 10px;
+      font-weight: 300;
+      font-size: 1rem;
+      font-family: sans-serif;
+
+      &:nth-child(2) {
+        color: #000;
+      }
+
+      &:nth-child(3) {
+        color: #9c9b9b;
+      }
+    }
+
+    .quantity-wrapper{
+      h1{
+        display: inline;
+      }
+
+      input{
+        width: 30px;
+        height: 35px;
+        display: inline-block;
+        padding: 0px 5px;
+        border: 1px solid #eeeeee;
+      }
+
+      .calculate{
+        display: inline-block;
+        width: 20px;
+        margin: 0px 5px;
+        vertical-align: middle;
+
+        span{
+          cursor: pointer;
+          text-align: center;
+          display: block;
+          border: 1px solid #eeeeee;
+          i{
+            display: block;
+          }
+        }
+      }
+    }
+    a{
+      background: #3e9b93;
+      color: #fff;
+      padding: 10px 30px;
+      border-radius: 20px;
+      display: block;
+      width: 100px;
+      margin: 15px 0px;
+    }
+    .share-links{
+      p{
+        display: inline-block;
+        margin: 0px 10px;
+      }
+  
+      .facebook, .twitter, .google, .pinterest{
+        display: inline-block;
+        height: 30px;
+        width: 37px;
+        text-align: center;
+        i{
+          display: block;
+          border: 1px solid #eeeeee;
+          padding: 10px;
+          transition: all ease-in-out 300ms;
+        }
+      }
+
+      .facebook{
+        &:hover{
+          i{
+          background: #3B5998;
+          color: #fff;
+          }
+        }
+      }
+      .twitter{
+        &:hover{
+          i{
+          background: #1DA1F2;
+          color: #fff;
+          }
+        }
+      }
+      .google{
+        &:hover{
+          i{
+          background: #DB4437;
+          color: #fff;
+          }
+        }
+      }
+      .pinterest{
+        &:hover{
+          i{
+          background: #BD081C;
+          color: #fff;
+          }
+        }
+      }
+    }
   }
 }

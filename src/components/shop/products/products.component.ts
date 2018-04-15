@@ -1,4 +1,4 @@
-import { Component, OnInit} from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { ProductService } from '../../../services/product.service';
 import { CheckoutService } from '../../../services/checkout.service';
@@ -24,13 +24,15 @@ export class ProductsComponent implements OnInit {
     private activatedRoute: ActivatedRoute,
     private sanitize: DomSanitizer,
     private router: Router,
-    private checkoutService: CheckoutService
+    private checkoutService: CheckoutService,
   ) {
   }
+  
   ngOnInit() {
     this.activatedRoute.params.subscribe(res => {
       this.productsService.getProducts().subscribe(docs => {
         let filtered = docs.filter(e => e.categories === res.category)
+
         if(!filtered.length && this.router.url == '/shop') {
           this.products = docs.map(doc => {
             return {
@@ -57,12 +59,15 @@ export class ProductsComponent implements OnInit {
       })
     })
   }
+
   sanitizeSrc(imgUrl) {
     return this.sanitize.bypassSecurityTrustUrl(imgUrl)
   }
+
   onSelect(id) {
    this.router.navigate(['/product/', id])
   }
+
    onCheckout(id){
      this.checkoutService.addCheckout(id)
      this.router.navigate(['/checkout'])
