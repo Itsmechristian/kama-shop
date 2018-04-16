@@ -9,7 +9,14 @@ export class CheckoutService {
   constructor(private productservice: ProductService) { }
 
   public async addCheckout(id: any) {
-    this.idsCheckout.push(id)
+    if(typeof id === 'object') {
+      id.forEach(e => {
+        this.idsCheckout.push(e)
+      })
+    }
+    else if(typeof id === 'string') {
+      this.idsCheckout.push(id)
+    }
   }
 
   public getCheckout() {

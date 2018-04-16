@@ -1,15 +1,33 @@
-import { Component, OnInit, ElementRef, Renderer2, ViewChild, ChangeDetectorRef } from '@angular/core';
+import { Component, OnInit, ElementRef, Renderer2, ViewChild, ChangeDetectorRef, ViewChildren, QueryList } from '@angular/core';
 import { DomSanitizer } from '@angular/platform-browser';
 import { ProductService } from '../../../services/product.service';
+import { CheckoutService } from '../../../services/checkout.service';
+
 import { ActivatedRoute, Router } from '@angular/router';
-import 'rxjs/add/operator/map'
+import 'rxjs/add/operator/map';
+import { trigger, state, transition, style, animate, stagger, query } from '@angular/animations';
+
 
 @Component({
   templateUrl: './product.component.html',
   styleUrls: ['./product.component.scss'],
+  animations: [
+    trigger('slideLeft', [
+      state('*', style({
+        transform: `translateY(0)`
+      })),
+      transition('* <=> slide', animate(500, style({
+        transform: `translateX(-140px)`
+      }))),
+      state('slide', style({
+        transform: `translateX(-140px)`
+      })),
+    ])
+  ]
 })
 export class ProductComponent implements OnInit{
   product: {
+    id: string,
     categories: string,
     name: string,
     details: string,
@@ -17,20 +35,22 @@ export class ProductComponent implements OnInit{
     images: Array<string>;
   };
 
-
-
   /* Image lens */
   @ViewChild('image') image: ElementRef;
   @ViewChild('lens') lens: ElementRef;
 
   // Quantitiy Handler Variables
   @ViewChild('quantity') quantity: ElementRef;
-
   value = 1;
+
+  // Pick Image Variables
+  imagesChoosen = 0;
+  ids = [];
 
   constructor(
     private activatedRoute: ActivatedRoute,
     private productsService: ProductService,
+    private checkoutService: CheckoutService,
     private router: Router,
     private sanitize: DomSanitizer,
     private element: ElementRef,
@@ -45,23 +65,41 @@ export class ProductComponent implements OnInit{
         if(this.product === undefined) {
           this.router.navigateByUrl('/404', { skipLocationChange: true })
         }
+        this.ids.push(this.product.id)
       })
     })
+  }
+
+
+  changeImage(e) {
+    const images = e.target.getAttribute('data-images').split(',')
+    const src = e.target.src;
+
+    let index = images.indexOf(src)
+
+    this.imagesChoosen = index;
   }
 
   sanitizeSrc(img) {
     return this.sanitize.bypassSecurityTrustUrl(img)
   }
 
+  onCheckout() {
+    this.checkoutService.addCheckout(this.ids)
+    this.router.navigate(['/checkout'])
+  }
+
   quantityHandler(e) {
+
     let key = e.target.getAttribute('id')
     if(key === 'plus' && this.value < 10) {
       this.value = this.value + 1;
+      this.ids.push(this.product.id);
     }
     else if(key === 'minus' && this.value !== 1){
      this.value = this.value - 1;
+     this.ids.splice(0, 1);
+     
     }
   }
-
-    
 }

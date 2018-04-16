@@ -29,5 +29,6 @@ export class CheckoutComponent implements OnInit {
   }
   mappedCheckout(product) {
     this.checkouts = this.checkoutservice.mappedCheckout(product)
+    console.log(this.checkouts)
   }
 }
