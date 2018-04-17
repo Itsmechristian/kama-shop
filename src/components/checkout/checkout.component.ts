@@ -1,7 +1,9 @@
 import { Component, OnInit } from '@angular/core';
+import { DomSanitizer } from '@angular/platform-browser';
 import { ProductService } from '../../services/product.service';
 import { CheckoutService } from '../../services/checkout.service';
 import { ProductModel } from '../../models/product.model';
+
 
 @Component({
   templateUrl: './checkout.component.html',
@@ -13,7 +15,8 @@ export class CheckoutComponent implements OnInit {
 
   constructor(
     private productservice: ProductService,
-    private checkoutservice: CheckoutService
+    private checkoutservice: CheckoutService,
+    private sanitize: DomSanitizer
   ) {}
 
   ngOnInit() {
@@ -29,6 +32,10 @@ export class CheckoutComponent implements OnInit {
   }
   mappedCheckout(product) {
     this.checkouts = this.checkoutservice.mappedCheckout(product)
-    console.log(this.checkouts)
+    this.checkouts.reverse()
+  }
+
+  sanitizeSrc(image) {
+    return this.sanitize.bypassSecurityTrustUrl(image)
   }
 }

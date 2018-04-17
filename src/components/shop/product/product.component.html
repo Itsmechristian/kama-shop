@@ -41,4 +41,11 @@
           </div>
        </div>
     </div>
+    <div class="similar-product">
+        <h1>{{similarProducts?.length}} OTHER PRODUCTS IN THE SAME CATEGORY</h1>
+        <hr />
+        <div class="wrapper">
+            <img *ngFor="let similarProduct of similarProducts" [src]=sanitizeSrc(similarProduct.images[0]) alt="similar-product">
+        </div>
+    </div>
  </div>

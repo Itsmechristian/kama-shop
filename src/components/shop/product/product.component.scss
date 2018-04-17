@@ -1,7 +1,13 @@
+h1{
+  color: #373737;
+  
+}
+
 .product{
   display: block;
   position: relative;
   margin: 5% 0;
+
   .image-wrapper{
     height: 350px;
     width: 500px;
@@ -46,6 +52,7 @@
         }
       }
     }
+    
     .sub-images{
       float: left;
       img{
@@ -67,7 +74,6 @@
     margin: 0px 15px;
 
     h1{
-      color: #373737;
       font-size: 1.1rem;
       margin: 10px;
       text-transform: uppercase;
@@ -118,6 +124,7 @@
         }
       }
     }
+
     a{
       background: #3e9b93;
       color: #fff;
@@ -127,6 +134,7 @@
       width: 100px;
       margin: 15px 0px;
     }
+
     .share-links{
       p{
         display: inline-block;
@@ -154,6 +162,7 @@
           }
         }
       }
+
       .twitter{
         &:hover{
           i{
@@ -162,6 +171,7 @@
           }
         }
       }
+
       .google{
         &:hover{
           i{
@@ -170,6 +180,7 @@
           }
         }
       }
+
       .pinterest{
         &:hover{
           i{
@@ -178,6 +189,22 @@
           }
         }
       }
+    }
+  }
+}
+.similar-product{
+  margin: 15px 0px;
+
+  hr{
+    border-top: 1px solid #eeeeee;
+  }
+  
+  .wrapper{
+    width: 90%;
+    
+    img{
+      height: 200px;
+      width: 250px;
     }
   }
 }

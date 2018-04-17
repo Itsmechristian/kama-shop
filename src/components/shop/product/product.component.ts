@@ -1,8 +1,8 @@
-import { Component, OnInit, ElementRef, Renderer2, ViewChild, ChangeDetectorRef, ViewChildren, QueryList } from '@angular/core';
+import { Component, OnInit, ElementRef, Renderer2, ViewChild, ChangeDetectorRef, ViewChildren } from '@angular/core';
 import { DomSanitizer } from '@angular/platform-browser';
 import { ProductService } from '../../../services/product.service';
 import { CheckoutService } from '../../../services/checkout.service';
-
+import { ProductModel } from '../../../models/product.model';
 import { ActivatedRoute, Router } from '@angular/router';
 import 'rxjs/add/operator/map';
 import { trigger, state, transition, style, animate, stagger, query } from '@angular/animations';
@@ -26,14 +26,10 @@ import { trigger, state, transition, style, animate, stagger, query } from '@ang
   ]
 })
 export class ProductComponent implements OnInit{
-  product: {
-    id: string,
-    categories: string,
-    name: string,
-    details: string,
-    price: string,
-    images: Array<string>;
-  };
+
+
+  product: ProductModel;
+  similarProducts: Array<ProductModel>;
 
   /* Image lens */
   @ViewChild('image') image: ElementRef;
@@ -61,11 +57,20 @@ export class ProductComponent implements OnInit{
   ngOnInit() {
     this.activatedRoute.params.subscribe(param => {
       this.productsService.getProducts().subscribe(docs => {
+
+        // Product Handlers 
         this.product = docs.find(product => product.id === param.id)
         if(this.product === undefined) {
+          // Navigate to 404 url if product isn't exist
           this.router.navigateByUrl('/404', { skipLocationChange: true })
         }
         this.ids.push(this.product.id)
+
+        // Similar Products Handlers
+
+        // It will filter the products that has the similar categories.
+        this.similarProducts = docs.filter(x => x.categories === this.product.categories)
+
       })
     })
   }
@@ -102,4 +107,13 @@ export class ProductComponent implements OnInit{
      
     }
   }
+
+  // interface ProductModel {
+  //   id: string
+  //   categories: string
+  //   name: string
+  //   details: string
+  //   price: string
+  //   images: Array<string>
+  // }
 }
