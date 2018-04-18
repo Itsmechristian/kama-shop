@@ -1,4 +1,4 @@
-import { Component, OnInit, ElementRef, Renderer2, ViewChild, ChangeDetectorRef, ViewChildren } from '@angular/core';
+import { Component, OnInit, ElementRef, Renderer2, ViewChild, ChangeDetectorRef, ViewChildren, Inject } from '@angular/core';
 import { DomSanitizer } from '@angular/platform-browser';
 import { ProductService } from '../../../services/product.service';
 import { CheckoutService } from '../../../services/checkout.service';
@@ -6,22 +6,55 @@ import { ProductModel } from '../../../models/product.model';
 import { ActivatedRoute, Router } from '@angular/router';
 import 'rxjs/add/operator/map';
 import { trigger, state, transition, style, animate, stagger, query } from '@angular/animations';
+import { DOCUMENT } from '@angular/platform-browser';
 
 
 @Component({
   templateUrl: './product.component.html',
   styleUrls: ['./product.component.scss'],
   animations: [
-    trigger('slideLeft', [
-      state('*', style({
-        transform: `translateY(0)`
+    trigger('modalAnimation', [
+      state('hide', style({
+        display: 'none'
       })),
-      transition('* <=> slide', animate(500, style({
-        transform: `translateX(-140px)`
+      state('show', style({
+        display: 'block'
+      }))
+    ]),
+    // Animation for Modal Overlay
+    trigger('overlayAnimation', [
+      state('hide', style({
+        display: 'none',
+        opacity: 0
+      })),
+      state('show', style({
+        display: 'block',
+        opacity: .4,
+      })),
+      transition('show => hide', animate(300, style({
+        display: 'none',
+        opacity: 0,
       }))),
-      state('slide', style({
-        transform: `translateX(-140px)`
+      transition('hide => show', animate(300, style({
+        display: 'block',
+        opacity: .4,
+      })))
+    ]),
+    // Animation for modal square
+    trigger('animateSquare', [
+      state('hide', style({
+        display: 'none',
+        transform: 'translate(-50%, -70%)',
+        opacity: 0
       })),
+      state('show', style({
+        transform: 'translate(-50%, -50%)',
+        opacity: 1
+      })),
+      transition('hide => show', animate(300, style({
+        transform: 'translate(-50%, -50%)',
+        opacity: 1        
+      }))),
     ])
   ]
 })
@@ -43,6 +76,9 @@ export class ProductComponent implements OnInit{
   imagesChoosen = 0;
   ids = [];
 
+  // Modal Variables
+  overlayState = 'hide';
+
   constructor(
     private activatedRoute: ActivatedRoute,
     private productsService: ProductService,
@@ -51,7 +87,8 @@ export class ProductComponent implements OnInit{
     private sanitize: DomSanitizer,
     private element: ElementRef,
     private renderer: Renderer2,
-    private changeDetector: ChangeDetectorRef
+    private changeDetector: ChangeDetectorRef,
+    @Inject(DOCUMENT) private document: any
   ) {}
 
   ngOnInit() {
@@ -69,8 +106,10 @@ export class ProductComponent implements OnInit{
         // Similar Products Handlers
 
         // It will filter the products that has the similar categories.
-        this.similarProducts = docs.filter(x => x.categories === this.product.categories)
-
+        let filtered = docs.filter(x => x.categories === this.product.categories );
+        let index = filtered.indexOf(this.product)
+        filtered.splice(index, 1)
+        this.similarProducts = filtered;
       })
     })
   }
@@ -87,7 +126,7 @@ export class ProductComponent implements OnInit{
 
   sanitizeSrc(img) {
     return this.sanitize.bypassSecurityTrustUrl(img)
-  }
+  } 
 
   onCheckout() {
     this.checkoutService.addCheckout(this.ids)
@@ -108,12 +147,18 @@ export class ProductComponent implements OnInit{
     }
   }
 
-  // interface ProductModel {
-  //   id: string
-  //   categories: string
-  //   name: string
-  //   details: string
-  //   price: string
-  //   images: Array<string>
-  // }
+  animateModal() {
+    if(this.overlayState === 'show'){
+      this.overlayState = 'hide';
+      this.document.body.style.overflow = 'visible';
+    }
+    else{
+      this.overlayState = 'show';
+      this.document.body.style.overflow = 'hidden';
+    }   
+  }
+  
+  onSelect(id) {
+    this.router.navigate(['/product/', id])
+   }
 }

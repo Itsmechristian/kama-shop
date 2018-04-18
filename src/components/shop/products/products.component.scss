@@ -36,8 +36,29 @@
           padding: 5px 25px;
           color: #fff;
           background: #3e9b93;
+          cursor: pointer;
         }
       }
     }
   }
+}
+
+@media screen and (max-width: 1200px) {
+  .info{
+
+    h4{
+      text-overflow: ellipsis;
+      height: 20px;
+      white-space: nowrap;
+      overflow: hidden;
+      cursor: pointer;
+    }
+
+    a{
+      width: 100px !important;
+    }
+  }
+}
+@media screen and (max-width: 1200px) {
+  
 }

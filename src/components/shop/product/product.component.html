@@ -1,9 +1,9 @@
-<div class="container">
-    <div class="product" *ngIf=product>
+<div class="container" *ngIf=product>
+    <div class="product">
         <div class="image-wrapper">
           <div class="product-image">
              <img [src]=sanitizeSrc(product.images[imagesChoosen]) alt="product">
-             <div class="lens">
+             <div class="lens" (click)="animateModal()">
                 <i class="fa fa-search-plus"></i>
              </div>
           </div>
@@ -40,12 +40,21 @@
              </div>
           </div>
        </div>
+       <!-- [@modalAnimation]="modalState" -->
+       <div class="modal" [@modalAnimation]="overlayState">
+            <div class="square" [@animateSquare]="overlayState"></div>
+            <div class="overlay" [@overlayAnimation]="overlayState" (click)="animateModal()"></div>
+        </div>
     </div>
     <div class="similar-product">
         <h1>{{similarProducts?.length}} OTHER PRODUCTS IN THE SAME CATEGORY</h1>
         <hr />
         <div class="wrapper">
-            <img *ngFor="let similarProduct of similarProducts" [src]=sanitizeSrc(similarProduct.images[0]) alt="similar-product">
+            <div class="product" *ngFor="let similarProduct of similarProducts">
+                <img [src]=sanitizeSrc(similarProduct.images[0]) alt="similar-product" (click)=onSelect(similarProduct.id)>
+                <h3>{{similarProduct.name}}</h3>
+                <h3>{{similarProduct.price}}</h3>
+            </div>
         </div>
     </div>
  </div>
